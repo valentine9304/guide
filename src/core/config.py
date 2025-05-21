@@ -59,6 +59,26 @@ class Configs(BaseSettings):
         database=DB,
     )
 
+    DATABASE_ASYNC_URI = "{db_engine}://{user}:{password}@{host}:{port}/{database}".format(
+        db_engine="postgresql+asyncpg",
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
+        port=DB_PORT,
+        database=DB,
+    )
+
+    DATABASE_SYNC_URI = "{db_engine}://{user}:{password}@{host}:{port}/{database}".format(
+        db_engine="postgresql",
+        user=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
+        port=DB_PORT,
+        database=DB,
+    )
+
+
+
     # find query
     PAGE = 1
     PAGE_SIZE = 20

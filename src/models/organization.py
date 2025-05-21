@@ -3,6 +3,8 @@ from sqlmodel import Field, Relationship
 
 from src.models.base_model import BaseModel
 
+from src.models.organization_phone import OrganizationPhone
+
 
 class Organization(BaseModel, table=True):
     name: str
@@ -11,3 +13,4 @@ class Organization(BaseModel, table=True):
     phones: List["OrganizationPhone"] = Relationship(back_populates="organization")
     building: Optional["Building"] = Relationship(back_populates="organizations")
     activities: List["OrganizationActivity"] = Relationship(back_populates="organization")
+
