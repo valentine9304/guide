@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from starlette.middleware.cors import CORSMiddleware
 
 from src.api.v1.routes import routers as v1_routers
 from src.core.config import configs
+from src.core.security import verify_api_key
 from src.core.container import Container
 from src.util.class_object import singleton
 
@@ -15,6 +16,7 @@ class AppCreator:
             title=configs.PROJECT_NAME,
             openapi_url=f"{configs.API}/openapi.json",
             version="0.0.1",
+            dependencies=[Depends(verify_api_key)]
         )
 
         # set db and container

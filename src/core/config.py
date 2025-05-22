@@ -13,6 +13,7 @@ class Configs(BaseSettings):
     # base
     ENV: str = os.getenv("ENV", "dev")
     API: str = "/api"
+    API_KEY: str = os.getenv("API_KEY", "default-api-key")
     API_V1_STR: str = "/api/v1"
     API_V2_STR: str = "/api/v2"
     PROJECT_NAME: str = "fca-api"

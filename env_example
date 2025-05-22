@@ -1,5 +1,6 @@
 # postgres case
 ENV=dev
+API_KEY=
 DB=postgresql
 DB_USER=gyu
 DB_PASSWORD=
